@@ -1,14 +1,14 @@
     <?php
 
-use Illuminate\Support\Facades\Route;
+    use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\DiariesController;
-use App\Http\Controllers\DocumentationsController;
-use App\Http\Controllers\ApprovalRequestsController;
-use App\Http\Controllers\UsersController;
+    use App\Http\Controllers\DiariesController;
+    use App\Http\Controllers\DocumentationsController;
+    use App\Http\Controllers\ApprovalRequestsController;
+    use App\Http\Controllers\UsersController;
 
 
-/*
+    /*
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
@@ -19,14 +19,14 @@ use App\Http\Controllers\UsersController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+    Route::get('/', function () {
+        return view('welcome');
+    });
 
-Auth::routes();
+    Auth::routes();
 
-Route::get('/admin', [App\Http\Controllers\HomeController::class, 'index'])->name('admin');
-Route::resource('/diaries', DiariesController::class);
-Route::resource('/documentations', DocumentationsController::class);
-Route::resource('/approval-requests', ApprovalRequestsController::class);
-Route::resource('/users', UsersController::class);
+    Route::get('/admin', [App\Http\Controllers\HomeController::class, 'index'])->name('admin');
+    Route::resource('/diaries', DiariesController::class);
+    Route::resource('/documentations', DocumentationsController::class);
+    Route::resource('/approval-requests', ApprovalRequestsController::class);
+    Route::resource('/users', UsersController::class);

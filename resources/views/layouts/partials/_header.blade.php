@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="icon" type="image/x-icon" href="{{ asset('images/book.ico') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('images/diary-icon.ico') }}">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -25,9 +25,7 @@
     {{-- SB Admin Assets --}}
     <!-- Custom fonts for this template-->
     <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
@@ -36,23 +34,30 @@
     {{-- SweetAlert Script --}}
     <script src="{{ asset('js/sweetalert2.all.min.js') }}"></script>
 
+    <!-- SweetAlert and jQuery imports inside the <head> section -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
     <style>
-        #wrapper .sidebar{
-            width: 20%!important;
+        #wrapper .sidebar {
+            width: 20% !important;
         }
-        #wrapper main{
-            width: 80%!important;
+
+        #wrapper main {
+            width: 80% !important;
             position: static;
             background: #f8f9fc;
         }
-        .sticky-footer{
+
+        .sticky-footer {
             position: absolute;
             bottom: 0;
             width: 80%;
         }
-        #wrapper #content-wrapper{
+
+        #wrapper #content-wrapper {
             height: 100vh;
         }
+
     </style>
 </head>
-<body id="page-top">

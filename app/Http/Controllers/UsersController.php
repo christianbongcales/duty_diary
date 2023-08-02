@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\User;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\ValidationException;
 
 class UsersController extends Controller
 {
@@ -18,7 +17,7 @@ class UsersController extends Controller
     {
         $users = User::all();
         // dd($users);
-        return view('admin.users.index')->with('users',$users);
+        return view('admin.users.index')->with('users', $users);
     }
 
     /**
@@ -56,7 +55,7 @@ class UsersController extends Controller
 
             $users = User::all();
 
-            return view('admin.users.index')->with('users',$users);
+            return view('admin.users.index')->with('users', $users);
             // return redirect()->route('success')->with('success', 'Data saved successfully!');
         } catch (ValidationException $e) {
             return redirect()->back()->withErrors($e->errors())->withInput();
@@ -84,7 +83,7 @@ class UsersController extends Controller
     {
         $user = User::findOrFail($id);
 
-        return view('admin.users.edit')->with('user',$user);
+        return view('admin.users.edit')->with('user', $user);
     }
 
     /**
@@ -114,8 +113,8 @@ class UsersController extends Controller
             $users = User::all();
 
             return view('admin.users.index')->with([
-                'users'=>$users,
-                'user_name'=>$user->name
+                'users' => $users,
+                'user_name' => $user->name
             ]);
             // return redirect()->route('success')->with('success', 'Data saved successfully!');
         } catch (ValidationException $e) {
@@ -131,6 +130,15 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $deleteUser = User::findOrFail($id);
+        // dd($deleteUser,$deleteUser->name);
+        $userName = $deleteUser->name;
+        $deleteUser->destroy($id);
+
+        if ($deleteUser) {
+            return response()->json(['message' => $userName . ' deleted successfully']);
+        } else {
+            return response()->json(['error' => 'Deletion failed!']);
+        }
     }
 }

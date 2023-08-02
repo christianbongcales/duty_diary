@@ -13,12 +13,13 @@
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
+
+    <!-- Sweetalert styles -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
 
@@ -48,7 +49,7 @@
 
 
                     <!-- Topbar Navbar -->
-                @include('layouts.partials._topbar')
+                    @include('layouts.partials._topbar')
 
                 </nav>
                 <!-- End of Topbar -->
@@ -59,8 +60,7 @@
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Print</a>
+                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Print</a>
                     </div>
 
                     <!-- Content Row -->
@@ -84,11 +84,11 @@
 
     <!-- Scroll to Top Button-->
 
-      @include('layouts.partials._scroll-up')
+    @include('layouts.partials._scroll-up')
 
-   <!-- Logout Modal-->
+    <!-- Logout Modal-->
 
-      @include('layouts.partials._logout-modal')
+    @include('layouts.partials._logout-modal')
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
@@ -99,6 +99,76 @@
 
     <!-- Custom scripts for all pages-->
     <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
+
+
+    <script>
+        function confirmDelete(id) {
+            let userId = id;
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success'
+                    , cancelButton: 'btn btn-danger'
+                }
+                , buttonsStyling: false
+            })
+
+            swalWithBootstrapButtons.fire({
+                title: 'Are you sure?'
+                , text: "You won't be able to revert this!"
+                , icon: 'warning'
+                , showCancelButton: true
+                , confirmButtonText: 'Yes, delete it! '
+                , cancelButtonText: ' Cancel it!'
+                , reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    fetch(`/users/${userId}`, {
+                            method: 'DELETE'
+                            , headers: {
+                                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                                , 'Content-Type': 'application/json'
+                            }
+                        })
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('Network response was not ok');
+                            }
+
+                            Swal.fire({
+                                title: 'Deleted!'
+                                , text: "Your file has been deleted."
+                                , icon: 'success'
+                                , showCancelButton: false
+                                , confirmButtonColor: '#3085d6'
+                                , cancelButtonColor: '#d33'
+                                , confirmButtonText: 'Okay'
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    location.reload();
+                                }
+                            })
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            // Handle any errors if necessary
+                        });
+
+                } else if (
+                    /* Read more about handling dismissals below */
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire(
+                        'Delete Failed!'
+                        , 'You have cancel the deletion process!'
+                        , 'error'
+                    )
+                }
+            })
+        }
+
+    </script>
+
+
 
 </body>
 
