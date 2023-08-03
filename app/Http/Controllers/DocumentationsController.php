@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Documentation;
 
 class DocumentationsController extends Controller
 {
@@ -15,7 +17,6 @@ class DocumentationsController extends Controller
     {
         return view('admin.documentations.index');
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -25,7 +26,6 @@ class DocumentationsController extends Controller
     {
         //
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -34,9 +34,27 @@ class DocumentationsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'doc_img' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Example image validation rules
+            'caption' => 'required|string',
+        ]);
+        if ($request->hasFile('doc_img')) {
+            $imageFile = $request->file('doc_img');
+            $originalName = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
+            $fileName = $originalName . "." . time() . '.' . $imageFile->getClientOriginalExtension();
+            $path = $imageFile->storeAs('public/upload/images', $fileName);
+            if (Auth::check()) {
+                $userId = Auth::id();
+            }
+            // Save the image details to the database //
+            Documentation::create([
+                'image' => $fileName,
+                'caption' => $request->input('caption'),
+                'author_id' => $userId,
+            ]);
+            return view('admin.documentations.index');
+        }
     }
-
     /**
      * Display the specified resource.
      *
@@ -47,7 +65,6 @@ class DocumentationsController extends Controller
     {
         //
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -58,7 +75,6 @@ class DocumentationsController extends Controller
     {
         //
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -70,7 +86,6 @@ class DocumentationsController extends Controller
     {
         //
     }
-
     /**
      * Remove the specified resource from storage.
      *

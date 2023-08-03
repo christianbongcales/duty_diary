@@ -21,7 +21,6 @@ class CreateDocumentationsTable extends Migration
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *
