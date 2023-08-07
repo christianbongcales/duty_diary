@@ -15,7 +15,8 @@ class DocumentationsController extends Controller
      */
     public function index()
     {
-        return view('admin.documentations.index');
+        $docs = Documentation::latest()->get();
+        return view('admin.documentations.index')->with('docs', $docs);
     }
     /**
      * Show the form for creating a new resource.
@@ -36,13 +37,15 @@ class DocumentationsController extends Controller
     {
         $request->validate([
             'doc_img' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Example image validation rules
-            'caption' => 'required|string',
+            // 'caption' => 'required|string',
         ]);
         if ($request->hasFile('doc_img')) {
             $imageFile = $request->file('doc_img');
             $originalName = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
             $fileName = $originalName . "." . time() . '.' . $imageFile->getClientOriginalExtension();
+
             $path = $imageFile->storeAs('public/upload/images', $fileName);
+
             if (Auth::check()) {
                 $userId = Auth::id();
             }
@@ -52,7 +55,7 @@ class DocumentationsController extends Controller
                 'caption' => $request->input('caption'),
                 'author_id' => $userId,
             ]);
-            return view('admin.documentations.index');
+            return view('admin.documentations.index')->with('uploadSuccess', 'The image ' . $fileName . ' successfully uploaded!');
         }
     }
     /**

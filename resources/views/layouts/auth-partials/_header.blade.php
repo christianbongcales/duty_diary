@@ -9,9 +9,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Login</title>
+    <title>Duty Diary</title>
 
-    <link rel="icon" type="image/x-icon" href="{{ asset('images/diary-icon.ico') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('images/spongebob.png') }}">
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">

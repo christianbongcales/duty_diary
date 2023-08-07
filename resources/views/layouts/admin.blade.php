@@ -18,6 +18,16 @@
     <!-- Custom styles for this template-->
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
 
+    <link href="{{ asset('css/dropify.css') }}" rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <script src="{{ asset('js/dropify.js') }}"></script>
+
     <!-- Sweetalert styles -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
@@ -91,14 +101,13 @@
     @include('layouts.partials._logout-modal')
 
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Custom scripts for all pages-->
     <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
 
 
     <script>
