@@ -13,7 +13,7 @@
         </div>
     </div>
     <div class="card-body p-0">
-        <table class="table table-sm table-hover mb-0">
+        <table class="table table-sm table-hover mb-0" id="myDataTable">
             <thead>
                 <tr>
                     <th scope="col">#</th>
