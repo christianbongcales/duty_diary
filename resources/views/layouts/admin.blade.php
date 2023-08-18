@@ -29,8 +29,11 @@
     <script src="{{ asset('js/dropify.js') }}"></script>
 
     <!-- Sweetalert styles -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-     <!-- CDN of DATATABLE -->
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.23/dist/sweetalert2.min.css" rel="stylesheet">
+
+    {{-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> --}}
+
+    <!-- CDN of DATATABLE -->
      <link rel="stylesheet" href="//cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
 
 </head>
@@ -72,7 +75,7 @@
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Print</a>
+                        {{-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Print</a> --}}
                     </div>
 
                     <!-- Content Row -->
@@ -109,6 +112,7 @@
     <!-- Custom scripts for all pages-->
     <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
 
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
 
     <!-- CDN OF DATATABLE -->
@@ -119,73 +123,9 @@
     <script src="//cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <script>let table = new DataTable('#myDataTable');</script>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.23/dist/sweetalert2.all.min.js"></script>
 
-    <script>
-        function confirmDelete(id) {
-            let userId = id;
-            const swalWithBootstrapButtons = Swal.mixin({
-                customClass: {
-                    confirmButton: 'btn btn-success'
-                    , cancelButton: 'btn btn-danger'
-                }
-                , buttonsStyling: false
-            })
 
-            swalWithBootstrapButtons.fire({
-                title: 'Are you sure?'
-                , text: "You won't be able to revert this!"
-                , icon: 'warning'
-                , showCancelButton: true
-                , confirmButtonText: 'Yes, delete it! '
-                , cancelButtonText: ' Cancel it!'
-                , reverseButtons: true
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    fetch(`/users/${userId}`, {
-                            method: 'DELETE'
-                            , headers: {
-                                'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                                , 'Content-Type': 'application/json'
-                            }
-                        })
-                        .then(response => {
-                            if (!response.ok) {
-                                throw new Error('Network response was not ok');
-                            }
-
-                            Swal.fire({
-                                title: 'Deleted!'
-                                , text: "Your file has been deleted."
-                                , icon: 'success'
-                                , showCancelButton: false
-                                , confirmButtonColor: '#3085d6'
-                                , cancelButtonColor: '#d33'
-                                , confirmButtonText: 'Okay'
-                            }).then((result) => {
-                                if (result.isConfirmed) {
-                                    location.reload();
-                                }
-                            })
-                        })
-                        .catch(error => {
-                            console.error('Error:', error);
-                            // Handle any errors if necessary
-                        });
-
-                } else if (
-                    /* Read more about handling dismissals below */
-                    result.dismiss === Swal.DismissReason.cancel
-                ) {
-                    swalWithBootstrapButtons.fire(
-                        'Delete Failed!'
-                        , 'You have cancel the deletion process!'
-                        , 'error'
-                    )
-                }
-            })
-        }
-
-    </script>
 
 
 

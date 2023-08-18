@@ -10,7 +10,7 @@ $('.dropify').dropify({
 </script>
 
 <script>
-$('#submit-doc').click(function(event) {
+$('#').click(function(event) {
     event.preventDefault();
 
     var form = $('#newDocumentation');

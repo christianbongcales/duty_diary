@@ -30,14 +30,14 @@
             .container .cdl-logo{
                 margin-bottom: 15vh;
             }
-            .container h1{
+            /* .container h1{
                 font-family: Century Gothic;
                 font-size: 3.5em;
                 text-transform: uppercase;
                 color: rgb(240, 12, 221);
                 -webkit-text-stroke: 1px rgb(255, 255, 255);
 
-            }
+            } */
 
             .login-btn{
                 padding: 10px 50px;
@@ -57,16 +57,14 @@
                 background-size: cover;
                 background-repeat: no-repeat;
                 background-position: center center;
-
-}
-
+            }
         </style>
     </head>
     <body class="antialiased">
         <div class="container">
             {{-- <img src="{{ asset('images/sample.gif') }}" alt="CDL Logo" width="40%" class="cdl-logo"> --}}
-            <h1><img src="{{ asset('images/results.gif') }}">
-</h1>
+            <img src="{{ asset('images/unscreen.gif') }}">
+
             <img src="{{ asset('images/squarepants.gif') }}" alt="Diary Logo" width="20%">
             <br>
             <a href="{{ route('login') }}" class="login-btn">Login</a>

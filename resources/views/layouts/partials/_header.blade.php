@@ -38,8 +38,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-    <!-- CDN of DATATABLE -->
-    <link rel="stylesheet" href="//cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+
 
     <style>
         #wrapper .sidebar {
@@ -53,7 +52,7 @@
         }
 
         .sticky-footer {
-            position: absolute;
+            position: absolute
             bottom: 0;
             width: 80%;
         }

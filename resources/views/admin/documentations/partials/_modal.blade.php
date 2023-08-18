@@ -25,9 +25,10 @@
           </div> --}}
           <div class="modal-footer">
             <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Cancel</button>
-            <input type="submit" value="Save"  id="doc-img" class="btn btn-primary btn-sm">
+            <input type="submit" value="Save"  id="submit_doc" class="btn btn-primary btn-sm">
           </div>
         </form>
       </div>
     </div>
   </div>
+

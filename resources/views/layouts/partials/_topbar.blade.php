@@ -1,9 +1,9 @@
 <ul class="navbar-nav ml-auto">
-    
+
     <!-- Nav Item - Search Dropdown (Visible Only XS) -->
     <li class="nav-item dropdown no-arrow d-sm-none">
         <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
-            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            data-toggle="dropdown" aria-haspopup="true" aria-expande    d="false">
             <i class="fas fa-search fa-fw"></i>
         </a>
         <!-- Dropdown - Messages -->
@@ -24,14 +24,16 @@
         </div>
     </li>
 
-   
+
     <div class="topbar-divider d-none d-sm-block"></div>
 
     <!-- Nav Item - User Information -->
     <li class="nav-item dropdown no-arrow">
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin Christian</span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+                    {{ auth()->user()->name }}
+                </span>
                 <img class="img-profile rounded-circle"
                     src= "{{ asset('images/pexels-photo.jpg') }}">
             </a>
@@ -40,8 +42,8 @@
             aria-labelledby="userDropdown">
             <a class="dropdown-item" href="#">
                 <i class="fas fa-solid fa-registered mr-2 text-gray-400"></i>
-                Register
-            
+                View Profile
+
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
