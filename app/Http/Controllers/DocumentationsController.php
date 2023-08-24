@@ -36,7 +36,7 @@ class DocumentationsController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'doc_img' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Example image validation rules
+            'doc_img' => 'required|image|mimes:jpeg,png,jpg,gif,ico|max:10048', // Example image validation rules
             // 'caption' => 'required|string',
         ]);
         if ($request->hasFile('doc_img')) {

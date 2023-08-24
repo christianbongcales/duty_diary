@@ -33,10 +33,12 @@
 
     {{-- SweetAlert Script --}}
     <script src="{{ asset('js/sweetalert2.all.min.js') }}"></script>
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.23/dist/sweetalert2.min.css" rel="stylesheet">
 
     <!-- SweetAlert and jQuery imports inside the <head> section -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    {{-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> --}}
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
 
 
 

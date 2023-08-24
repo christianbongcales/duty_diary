@@ -29,17 +29,21 @@
     <script src="{{ asset('js/dropify.js') }}"></script>
 
     <!-- Sweetalert styles -->
-    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.23/dist/sweetalert2.min.css" rel="stylesheet">
+    {{-- <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.23/dist/sweetalert2.min.css" rel="stylesheet"> --}}
+        {{-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> --}}
 
-    {{-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> --}}
+
 
     <!-- CDN of DATATABLE -->
      <link rel="stylesheet" href="//cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
 
+      <!-- This is from TinyMCE -->
+      <script src="https://cdn.tiny.cloud/1/u0ebksljpkfdocbxvgho44w8fhi8tww0bw78lg90ba5p8r2i/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+
 </head>
 
 <body id="page-top">
-
+    @include('layouts.partials._header')
     <!-- Page Wrapper -->
     <div id="wrapper">
 
@@ -115,6 +119,8 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
 
+    {{-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> --}}
+
     <!-- CDN OF DATATABLE -->
     <script
   src="https://code.jquery.com/jquery-3.5.1.min.js"
@@ -123,10 +129,17 @@
     <script src="//cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <script>let table = new DataTable('#myDataTable');</script>
 
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.23/dist/sweetalert2.all.min.js"></script>
+    {{-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.23/dist/sweetalert2.all.min.js"></script> --}}
 
 
-
+      {{-- TinyMCE Script --}}
+      <script>
+        tinymce.init({
+          selector: 'textarea',
+          plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+          toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+        });
+      </script>
 
 
 </body>

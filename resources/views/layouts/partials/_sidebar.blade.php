@@ -43,6 +43,7 @@
             <span>Documentations</span></a>
     </li>
 
+    @if(Session::get('USERROLE') == 1 || Session::get('USERROLE') == 2)
      <!-- Divider -->
      <hr class="sidebar-divider">
 
@@ -55,7 +56,9 @@
              <span>Approval Requests</span>
         </a>
      </li>
+     @endif
 
+     @if(Session::get('USERROLE') == 1)
       <!-- Divider -->
     <hr class="sidebar-divider">
 
@@ -68,7 +71,7 @@
              <span>Users</span>
         </a>
      </li>
-
+     @endif
 
 
 </ul>

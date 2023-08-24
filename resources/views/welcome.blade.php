@@ -65,7 +65,7 @@
             {{-- <img src="{{ asset('images/sample.gif') }}" alt="CDL Logo" width="40%" class="cdl-logo"> --}}
             <img src="{{ asset('images/unscreen.gif') }}">
 
-            <img src="{{ asset('images/squarepants.gif') }}" alt="Diary Logo" width="20%">
+            <img src="{{ asset('images/mario.gif') }}" alt="Diary Logo" width="23%">
             <br>
             <a href="{{ route('login') }}" class="login-btn">Login</a>
 

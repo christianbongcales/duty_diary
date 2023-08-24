@@ -131,8 +131,9 @@ class DiariesController extends Controller
     public function edit($id)
     {
         $diary = Diary::findOrFail($id);
+        $supervisors = User::where('role_id', '=', 2)->get();
 
-        return view('admin.diaries.edit')->with('diary', $diary);
+        return view('admin.diaries.edit')->with(['diary' => $diary, 'supervisors' => $supervisors,]);
     }
 
     /**
@@ -155,7 +156,7 @@ class DiariesController extends Controller
             ]);
 
             $diary = Diary::findOrFail($id);
-            // dd($request->input('todays-plan'));
+
             $diary->update([
                 'plan_today' => $request->plantoday,
                 'end_today' => $request->eod,
@@ -168,11 +169,14 @@ class DiariesController extends Controller
             ]);
 
             $diaries = Diary::all();
+            // $diaries = Diary::with('supervisor')->get();
+            $message = 'EOD Report has been updated!';
 
-            return view('admin.diaries.index')->with([
-                'diaries' => $diaries
-            ]);
-            // return redirect()->route('success')->with('success', 'Data saved successfully!');
+            $diary = Diary::with(['author', 'supervisor'])->find($diary->$id);
+            // return view('admin.diaries.index')->with(['diaries'=>$diaries]);
+            return redirect('diaries')->with(['diaries' => $diaries, 'success' => $message]);
+            // return view('admin.diaries.index', ['diaries' => $diaries, 'success' =>$message]);
+            // return redirect('diaries')->with(['diaries' => $diaries]);
         } catch (ValidationException $e) {
             return redirect()->back()->withErrors($e->errors())->withInput();
         }
