@@ -51,7 +51,7 @@
         </div>
         @method('PUT')
         <div class="card-footer">
-            <button type="submit" class="btn btn-success btn-sm">Save</button>
+            <button type="submit" class="btn btn-success btn-sm">Update</button>
             <a href="{{ back()->getTargetUrl() }}" class="btn btn-secondary btn-sm">Cancel</a>
         </div>
     </form>

@@ -60,4 +60,5 @@
 </div>
 
 @include('admin.users.partials._users-script')
+
 @endsection

@@ -8,30 +8,6 @@
     use App\Http\Controllers\UsersController;
 
 
-    /*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-    // Route::get('/', function () {
-    //     return view('welcome');
-    // });
-
-    // Auth::routes();
-
-    // Route::get('/admin', [App\Http\Controllers\HomeController::class, 'index'])->name('admin');
-    // Route::resource('/diaries', DiariesController::class);
-    // Route::resource('/documentations', DocumentationsController::class);
-    // Route::resource('/approval-requests', ApprovalRequestsController::class);
-    // Route::resource('/users', UsersController::class);
-
-
     Auth::routes();
     Route::get('/', function () {
         return view('welcome');
@@ -50,4 +26,9 @@
         Route::resource('/documentations', DocumentationsController::class);
         Route::resource('/diaries', DiariesController::class);
         Route::resource('/approval-requests', ApprovalRequestsController::class);
+
+        Route::get('/print/approval-requests/{id}', [App\Http\Controllers\ApprovalRequestsController::class, 'print'])->name('approval-requests.print');
+        Route::get('/print/diaries/{id}', [App\Http\Controllers\DiariesController::class, 'print'])->name('diaries.print');
+        Route::put('/approve/approval-requests/{id}', [App\Http\Controllers\ApprovalRequestsController::class, 'approve'])->name('approval-requests.approve');
+        Route::put('/reject/approval-requests/{id}', [App\Http\Controllers\ApprovalRequestsController::class, 'reject'])->name('approval-requests.reject');
     });

@@ -1,7 +1,15 @@
 <!-- Footer -->
+<style>
+    footer.sticky-footer {
+    padding: 2rem 0;
+    flex-shrink: 0;
+    width: auto;
+}
+    </style>
+
 <footer class="sticky-footer bg-white py-2 mt-2">
     <div class="container my-auto">
-        <div class="copyright text-center my-auto">
+        <div class="copyright text-center">
             <span>Copyright &copy; Your Website 2023</span>
         </div>
     </div>

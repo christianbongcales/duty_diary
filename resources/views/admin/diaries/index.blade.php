@@ -50,7 +50,7 @@
                                     @endif
                                 </td>
                                 <td>
-                                    @if ($diary->status == 1)
+                                    @if ($diary->status == 0)
                                         <span class="badge badge-warning">Pending</span>
                                     @else
                                         <span class="badge badge-success">Approve</span>
