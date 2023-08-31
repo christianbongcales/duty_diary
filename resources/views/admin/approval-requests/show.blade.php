@@ -23,7 +23,7 @@
                             <button class="btn btn-sm btn-success" onclick="approveDiary({{$diary['diary']->id}})">
                                 <i class="fas fa-check"></i> Approve
                             </button>
-                            @include('admin.approval-requests.partials._scripts')
+                            @include('admin.approval-requests.partials._script')
                         @endif
                     @endif
                 </div>

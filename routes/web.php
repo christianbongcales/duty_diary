@@ -25,10 +25,10 @@
         Route::resource('/users', UsersController::class);
         Route::resource('/documentations', DocumentationsController::class);
         Route::resource('/diaries', DiariesController::class);
+        Route::get('/print/diaries/{id}', [App\Http\Controllers\DiariesController::class, 'print'])->name('diaries.print');
         Route::resource('/approval-requests', ApprovalRequestsController::class);
 
         Route::get('/print/approval-requests/{id}', [App\Http\Controllers\ApprovalRequestsController::class, 'print'])->name('approval-requests.print');
-        Route::get('/print/diaries/{id}', [App\Http\Controllers\DiariesController::class, 'print'])->name('diaries.print');
         Route::put('/approve/approval-requests/{id}', [App\Http\Controllers\ApprovalRequestsController::class, 'approve'])->name('approval-requests.approve');
         Route::put('/reject/approval-requests/{id}', [App\Http\Controllers\ApprovalRequestsController::class, 'reject'])->name('approval-requests.reject');
     });
