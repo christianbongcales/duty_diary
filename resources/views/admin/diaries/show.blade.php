@@ -58,8 +58,7 @@
 
             <p class="mt-5">Checked by:</p>
             <img src="{{ asset('storage/'.$diary['signature']) }}" alt="Supervisor's Signature" width="15%" class="position-relative top-1 mt-5">
-            <h5 class="mt-5 text-uppercase m-0">{{$diary['supervisor'] }}</h5>
-            <p class="m-0">HTE Supervising Officer</p>
+            <h5 class="text-uppercase mb-0">{{$diary['supervisor'] }}</h5>
             <p class="m-0">Date: {{ now()->format('F d, Y') }}</p>
         </div>
     </div>

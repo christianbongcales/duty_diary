@@ -32,4 +32,8 @@
 
 @include('admin.users.partials._users-script')
 
+ <!-- Footer -->
+ @include('layouts.partials._footer')
+ <!-- End of Footer -->
+
 @endsection

@@ -1,9 +1,12 @@
 <!-- Footer -->
 <style>
     footer.sticky-footer {
+    position: fixed;
+    bottom: 0;
     padding: 2rem 0;
     flex-shrink: 0;
-    width: auto;
+    width: 80%;
+
 }
     </style>
 

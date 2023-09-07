@@ -47,4 +47,8 @@
         </div>
     </form>
 </div>
+
+ <!-- Footer -->
+ @include('layouts.partials._footer')
+ <!-- End of Footer -->
 @endsection

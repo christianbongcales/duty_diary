@@ -58,4 +58,8 @@
     @include('admin.profile.partials._profile-pic-modal')
     @include('admin.profile.partials._signature-modal')
     @include('admin.profile.partials._scripts')
+
+     <!-- Footer -->
+     @include('layouts.partials._footer')
+     <!-- End of Footer -->
 @endsection

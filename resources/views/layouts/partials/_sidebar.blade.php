@@ -34,6 +34,9 @@
             <span>Diaries</span></a>
     </li>
 
+     <!-- Divider -->
+     <hr class="sidebar-divider">
+
     <!-- Nav Item - Tables -->
     <li class="nav-item
         {{ request()->is('documentations') ? 'active' : '' }}
@@ -75,4 +78,6 @@
 
 
 </ul>
+
+
 <!-- End of Sidebar -->

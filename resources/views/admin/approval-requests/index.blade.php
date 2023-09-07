@@ -43,4 +43,7 @@
 @include('admin.approval-requests.partials._script')
 
 
+ <!-- Footer -->
+ @include('layouts.partials._footer')
+ <!-- End of Footer -->
 @endsection

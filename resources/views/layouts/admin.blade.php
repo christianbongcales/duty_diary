@@ -91,9 +91,9 @@
             <!-- End of Main Content -->
 
 
-            <!-- Footer -->
+            {{-- <!-- Footer -->
             @include('layouts.partials._footer')
-            <!-- End of Footer -->
+            <!-- End of Footer --> --}}
 
         </div>
         <!-- End of Content Wrapper -->

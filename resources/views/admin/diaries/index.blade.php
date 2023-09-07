@@ -65,4 +65,8 @@
             </div>
     @include('admin.diaries.partials._diaries-script')
     @include('admin.diaries.partials._datatables-scripts')
+
+     <!-- Footer -->
+     @include('layouts.partials._footer')
+     <!-- End of Footer -->
 @endsection
