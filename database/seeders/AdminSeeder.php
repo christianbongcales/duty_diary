@@ -5,26 +5,22 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use App\Models\User;
+use App\Models\User; // Import the User model
 use App\Models\Role;
 
 
 class AdminSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
-        $adminRole = DB::table('roles')->where('name', 'admin')->first();
+        // Create the admin role if it doesn't exist
+        $adminRole = Role::firstOrCreate(['name' => 'admin']);
 
-        // Create an admin user and associate it with the "admin" role
-        DB::table('users')->insert([
+        // Create the admin user
+        User::create([
             'name' => 'Admin User',
             'email' => 'admin@example.com',
-            'password' => Hash::make('admin_password'), // Replace 'admin_password' with the actual password
+            'password' => Hash::make('admin_password'), // Replace with the actual password
             'role_id' => $adminRole->id,
             'created_at' => now(),
             'updated_at' => now(),
