@@ -40,6 +40,10 @@
       <!-- This is from TinyMCE -->
       <script src="https://cdn.tiny.cloud/1/u0ebksljpkfdocbxvgho44w8fhi8tww0bw78lg90ba5p8r2i/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 
+
+      <!--Animation On Scroll --->
+      <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
 </head>
 
 <body id="page-top">
@@ -58,7 +62,7 @@
             <div id="content">
 
                 <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                <nav class="navbar navbar-expand navbar-light bg-gradient-light topbar mb-4 static-top shadow">
 
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -101,9 +105,6 @@
     </div>
     <!-- End of Page Wrapper -->
 
-    <!-- Scroll to Top Button-->
-
-    @include('layouts.partials._scroll-up')
 
     <!-- Logout Modal-->
 
@@ -120,6 +121,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
 
     {{-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> --}}
+
+    <!-- Animation On Scroll -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        AOS.init();
+      </script>
 
     <!-- CDN OF DATATABLE -->
     <script

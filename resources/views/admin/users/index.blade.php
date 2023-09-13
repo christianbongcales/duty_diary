@@ -8,11 +8,11 @@
                 <i class="fas fa-solid fa-users"></i>
                 Users
             </div>
-            {{-- <div class="col-md-6 col-12 text-right">
 
-            </div> --}}
         </div>
+
     </div>
+
     <div class="card-body p-1">
         <table class="table table-sm table-hover mb-0" id="users-table">
           <thead>
@@ -37,5 +37,9 @@
  <!-- Footer -->
  @include('layouts.partials._footer')
  <!-- End of Footer -->
+
+  <!-- Scroll to Top Button-->
+
+  @include('layouts.partials._scroll-up')
 
 @endsection

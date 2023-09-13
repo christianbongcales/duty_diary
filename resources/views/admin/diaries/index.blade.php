@@ -71,4 +71,9 @@
      <!-- Footer -->
      @include('layouts.partials._footer')
      <!-- End of Footer -->
+
+      <!-- Scroll to Top Button-->
+
+    @include('layouts.partials._scroll-up')
+
 @endsection

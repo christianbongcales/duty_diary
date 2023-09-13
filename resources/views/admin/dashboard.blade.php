@@ -3,14 +3,14 @@
 @section('content')
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-solid fa-tachometer-alt"></i> Duty Diary</h6>
+        <h6 class="m-0 font-weight-bold text-primary" data-aos="flip-left" data-aos-delay="50" data-aos-duration="1500"><i class="fas fa-solid fa-tachometer-alt"></i> Duty Diary</h6>
     </div>
 
      <!-- Content Row -->
      <div class="row">
 
 
-        <div class="col-6 col-md-6 mb-2">
+        <div class="col-6 col-md-6 mb-2" data-aos="fade-down" data-aos-delay="50" data-aos-duration="1500">
             <div class="card border-left-primary shadow h-100 py-4">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
@@ -28,7 +28,7 @@
         </div>
 
 
-        <div class="col-6 col-md-6 mb-2">
+        <div class="col-6 col-md-6 mb-2" data-aos="fade-left" data-aos-delay="50" data-aos-duration="1500">
             <div class="card border-left-success shadow h-100 py-4">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
@@ -46,7 +46,7 @@
         </div>
 
 
-        <div class="col-6 col-md-6 mb-2">
+        <div class="col-6 col-md-6 mb-2" data-aos="fade-right" data-aos-delay="50" data-aos-duration="1500">
             <div class="card border-left-info shadow h-100 py-4">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
@@ -68,7 +68,7 @@
         </div>
 
 
-        <div class="col-6 col-md-6 mb-2">
+        <div class="col-6 col-md-6 mb-2" data-aos="fade-up" data-aos-delay="50" data-aos-duration="1500">
             <div class="card border-left-warning shadow h-100 py-4">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
@@ -92,5 +92,7 @@
  @include('layouts.partials._footer')
  <!-- End of Footer -->
 
+ <!-- Scroll to Top Button-->
+@include('layouts.partials._scroll-up')
 
 @endsection
