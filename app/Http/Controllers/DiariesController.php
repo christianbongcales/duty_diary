@@ -2,11 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\NewDiaryEmail;
+use Illuminate\Http\Request;
+
 use App\Models\Diary;
 use App\Models\User;
-use Error;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use Yajra\DataTables\Facades\DataTables;
+
+use Illuminate\Support\Facades\Notification;
+use App\Notifications\NewDiaryPosted;
+
 
 class DiariesController extends Controller
 {
@@ -82,10 +89,25 @@ class DiariesController extends Controller
                 'status' => 0
             ]);
 
+            if ($diary) {
+                $trainee = User::where('id', '=', $diary->author_id)->first();
+                $supervisor = User::where('id', '=', $diary->supervisor_id)->first();
+                $diary = [
+                    'trainee' => $trainee->name,
+                    'supervisor' => $supervisor->name,
+                    'sup_email' => $supervisor->email,
+                    'url' => route('approval-requests.show', $diary->id),
+                ];
+
+                // Mail::to($diary['sup_email'])->send(new NewDiaryEmail($diary));
+
+                Notification::route('slack', config('notifications.slack_webhook'))->notify(new NewDiaryPosted($diary));
+            }
+
             $diaries = Diary::all();
 
 
-            $diary = Diary::with(['author', 'supervisor'])->find($diary->id);
+            // $diary = Diary::with(['author', 'supervisor'])->find($diary->id);
             return view('admin.diaries.index')->with('diaries', $diaries);
             // return redirect()->route('success')->with('success', 'Data saved successfully!');
         } catch (ValidationException $e) {

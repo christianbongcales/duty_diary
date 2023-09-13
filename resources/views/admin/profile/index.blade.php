@@ -59,6 +59,7 @@
     @include('admin.profile.partials._signature-modal')
     @include('admin.profile.partials._scripts')
 
+    <br>
      <!-- Footer -->
      @include('layouts.partials._footer')
      <!-- End of Footer -->

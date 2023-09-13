@@ -42,6 +42,7 @@
 @include('admin.approval-requests.partials._datatables-script')
 @include('admin.approval-requests.partials._script')
 
+<br>
 
  <!-- Footer -->
  @include('layouts.partials._footer')

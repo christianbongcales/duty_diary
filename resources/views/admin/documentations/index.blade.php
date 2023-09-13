@@ -51,6 +51,7 @@
     @include('admin.documentations.partials._modal')
    @include('admin.documentations.partials._scripts')
 
+   <br>
     <!-- Footer -->
     @include('layouts.partials._footer')
     <!-- End of Footer -->

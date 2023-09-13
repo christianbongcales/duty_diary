@@ -17,7 +17,7 @@
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                 Diaries</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">24</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $diaryCount }}</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-book-open fa-2x text-gray-300"></i>
@@ -35,7 +35,7 @@
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                 Documentations</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">12</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $documentationCount }}</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-images fa-2x text-gray-300"></i>
@@ -55,7 +55,7 @@
                             </div>
                             <div class="row no-gutters align-items-center">
                                 <div class="col-auto">
-                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">20</div>
+                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ $diaryCount }}</div>
                                 </div>
                             </div>
                         </div>
@@ -75,7 +75,7 @@
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                Users</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">11</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $userCount }}</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-users fa-2x text-gray-300"></i>
@@ -85,6 +85,8 @@
             </div>
         </div>
     </div>
+
+    <br>
 
  <!-- Footer -->
  @include('layouts.partials._footer')

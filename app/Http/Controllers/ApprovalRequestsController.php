@@ -158,16 +158,16 @@ class ApprovalRequestsController extends Controller
             $trainee = User::where('id', '=', $diary->author_id)->first();
             $supervisor = User::where('id', '=', $diary->supervisor_id)->first();
 
-            // $approvedDiary = [
-            //     'trainee' => $trainee->name,
-            //     'supervisor' => $supervisor->name,
-            //     'sup_email' => $supervisor->email,
-            //     'url' => route('approval-requests.show', $diary->id),
-            // ];
+            $approvedDiary = [
+                'trainee' => $trainee->name,
+                'supervisor' => $supervisor->name,
+                'sup_email' => $supervisor->email,
+                'url' => route('approval-requests.show', $diary->id),
+            ];
 
             // Mail::to($user->email)->send(new ApprovedDiary($approvedDiary));
 
-            // Notification::route('slack', config('notifications.slack_webhook'))->notify(new DiaryApproved($approvedDiary));
+            Notification::route('slack', config('notifications.slack_webhook'))->notify(new DiaryApproved($approvedDiary));
         }
 
 

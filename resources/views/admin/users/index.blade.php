@@ -32,6 +32,8 @@
 
 @include('admin.users.partials._users-script')
 
+<br>
+
  <!-- Footer -->
  @include('layouts.partials._footer')
  <!-- End of Footer -->
